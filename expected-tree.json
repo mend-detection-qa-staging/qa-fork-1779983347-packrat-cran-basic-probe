@@ -1,16 +1,16 @@
 {
     "schema_version": "1.0",
     "pm": "packrat",
-    "pm_version_tested": "0.9.2",
+    "pm_version_tested": "0.9.3",
     "r_version_tested": "4.3.2",
     "lockfile": "packrat/packrat.lock",
     "lockfile_format": "PackratFormat 1.4",
     "pattern": "cran-basic",
-    "notes": "Baseline diagnostic probe. Two direct CRAN packages (jsonlite 1.8.8, httr 1.4.7) plus one explicit transitive (curl 5.2.1, required by httr). Hash values: jsonlite MD5 is real CRAN value from PACKRAT_COVERAGE_PLAN.md; httr and curl hashes are plausible-format 32-char hex strings (unverified without live CRAN access — syntactically valid). The lockfile is in INI-like DCF format, not JSON. No DESCRIPTION file present.",
+    "notes": "Generated via Docker (rocker/r-ver:4.3.2) with RSPM binary packages. Two direct packages (httr 1.4.8, jsonlite 2.0.0) with 6 transitives. Source is RSPM (Posit Package Manager binary mirror). All hashes are real MD5 values from the RSPM registry.",
     "packages": [
         {
             "name": "jsonlite",
-            "version": "1.8.8",
+            "version": "2.0.0",
             "scope": "runtime",
             "group": "main",
             "source": "registry",
@@ -19,7 +19,7 @@
         },
         {
             "name": "httr",
-            "version": "1.4.7",
+            "version": "1.4.8",
             "scope": "runtime",
             "group": "main",
             "source": "registry",
@@ -27,23 +27,75 @@
             "children": [
                 {
                     "name": "curl",
-                    "version": "5.2.1",
+                    "version": "7.1.0",
                     "scope": "runtime",
                     "group": "main",
                     "source": "registry",
                     "direct": false,
                     "children": []
+                },
+                {
+                    "name": "R6",
+                    "version": "2.6.1",
+                    "scope": "runtime",
+                    "group": "main",
+                    "source": "registry",
+                    "direct": false,
+                    "children": []
+                },
+                {
+                    "name": "mime",
+                    "version": "0.13",
+                    "scope": "runtime",
+                    "group": "main",
+                    "source": "registry",
+                    "direct": false,
+                    "children": []
+                },
+                {
+                    "name": "openssl",
+                    "version": "2.4.0",
+                    "scope": "runtime",
+                    "group": "main",
+                    "source": "registry",
+                    "direct": false,
+                    "children": [
+                        {
+                            "name": "askpass",
+                            "version": "1.2.1",
+                            "scope": "runtime",
+                            "group": "main",
+                            "source": "registry",
+                            "direct": false,
+                            "children": [
+                                {
+                                    "name": "sys",
+                                    "version": "3.4.3",
+                                    "scope": "runtime",
+                                    "group": "main",
+                                    "source": "registry",
+                                    "direct": false,
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
     ],
-    "total_packages": 3,
+    "total_packages": 8,
     "direct_count": 2,
-    "transitive_count": 1,
+    "transitive_count": 6,
     "unique_packages": [
-        "jsonlite:1.8.8",
-        "httr:1.4.7",
-        "curl:5.2.1"
+        "jsonlite:2.0.0",
+        "httr:1.4.8",
+        "curl:7.1.0",
+        "R6:2.6.1",
+        "mime:0.13",
+        "openssl:2.4.0",
+        "askpass:1.2.1",
+        "sys:3.4.3"
     ],
     "mend_detection_expectations": {
         "all_packages_must_appear": true,
@@ -56,9 +108,9 @@
             "INI-format parser missing — JSON-only resolver returns empty tree",
             "PackratFormat: 1.4 header unrecognised",
             "RVersion: 4.3.2 parse error",
-            "missing transitive dep curl under httr",
+            "RSPM source type not mapped to registry",
+            "multi-level transitive chain missing: openssl->askpass->sys",
             "Hash: field parse error on non-JSON lockfile"
-        ],
-        "resolver_gap_note": "The upstream UA resolver file (resolvers/r.md) was inaccessible at probe-generation time. Whether Mend parses packrat/packrat.lock statically or via pre-step Rscript is unconfirmed. Run this probe first — if tree is empty, escalate before proceeding with other Packrat probes."
+        ]
     }
 }
