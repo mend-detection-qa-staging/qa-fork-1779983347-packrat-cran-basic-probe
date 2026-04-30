@@ -1,0 +1,13 @@
+auto.snapshot: FALSE
+use.cache: FALSE
+print.banner.on.startup: ask
+vcs.ignore.lib: TRUE
+vcs.ignore.src: FALSE
+external.packages: character(0)
+local.repos: character(0)
+load.external.packages.on.startup: TRUE
+ignored.packages: character(0)
+quiet.package.installation: TRUE
+symlink.system.packages: FALSE
+snapshot.recommended.packages: FALSE
+snapshot.unlock: FALSE
