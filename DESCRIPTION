@@ -1,0 +1,7 @@
+Package: packrat-cran-basic-probe
+Type: Package
+Title: Packrat CRAN Basic Probe
+Version: 0.1.0
+Description: Minimal R project for testing packrat CRAN dependency detection.
+Authors@R: person("Mend", "QA", role = c("aut", "cre"), email = "qa@mend.io")
+License: MIT
